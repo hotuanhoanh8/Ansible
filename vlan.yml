@@ -4,11 +4,6 @@
   gather_facts: no
 
   tasks:
-    - name: create vlan
-      debug: msg="dang tao vlan"
-      ios_config:
-        lines: vlan 10
-
     - name: Create vlan
       ios_vlan:
         vlan_id: 100
