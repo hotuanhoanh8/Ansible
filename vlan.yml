@@ -10,8 +10,8 @@
         name: "{{ item }}"
         state: present
       loop:
-        - 11
-        - 12
-        - 13
-        - 14
-        - 15
+        - vlan 11
+        - vlan 12
+        - vlan 13
+        - vlan 14
+        - vlan 15
