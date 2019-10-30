@@ -9,9 +9,9 @@
         vlan_id: "{{ item }}"
         name: "{{ item }}"
         state: present
-      loop:
-        - vlan 11
-        - vlan 12
-        - vlan 13
-        - vlan 14
-        - vlan 15
+      with_items:
+        - 11
+        - 12
+        - 13
+        - 14
+        - "15"
