@@ -6,8 +6,8 @@
   tasks:
     - name: Create vlan
       ios_vlan:
-        vlan_id: "{{item}}"
-        name: vlan "{{item}}"
+        vlan_id: "{{ item }}"
+        name: "{{ item }}"
         state: present
       loop:
         - 11
