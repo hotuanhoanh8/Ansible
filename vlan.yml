@@ -10,5 +10,5 @@
         name: "{{ item.regex }}"
         state: present
       with_items:
-        - { number: "21", regex: "phong 1" }
-        - { number: "22", regex: "p1" }
+        - { number: "23", regex: "phong_1" }
+        - { number: "24", regex: "p1" }
