@@ -1,17 +1,17 @@
 ---
 - name: tao vlan
-    host: all
-    gather_facts: no
+  host: all
+  gather_facts: no
 
-    tasks:
-      - name: Create vlan
-        ios_vlan:
-          vlan_id: "{{item}}"
-          name: test-vlan "{{item}}"
-          state: present
-        loop:
-          -10
-          -11
-          -12
-          -13
-          -14
+  tasks:
+   - name: Create vlan
+      ios_vlan:
+       vlan_id: "{{item}}"
+       name: test-vlan
+       state: present
+      loop:
+       -10
+       -11
+       -12
+       -13
+       -14
