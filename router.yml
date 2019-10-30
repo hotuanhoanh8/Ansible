@@ -1,6 +1,6 @@
 ---
 - name: dat ip cho loobpack
-  hosts: all
+  #hosts: all
 
   tasks:
     - name: Set loopback IPv4 address
