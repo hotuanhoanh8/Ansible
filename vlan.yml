@@ -7,7 +7,7 @@
       - name: Create vlan
         ios_vlan:
           vlan_id: "{{item}}"
-          name: test-vlan
+          name: test-vlan "{{item}}"
           state: present
         loop:
           -10
