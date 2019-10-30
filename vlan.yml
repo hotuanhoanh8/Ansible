@@ -12,3 +12,9 @@
       with_items:
         - { number: "23", regex: "phong_1" }
         - { number: "24", regex: "p1" }
+    - name: Show vlan
+      ios_command:
+        commnads: show vlan
+      register: show_vlan
+
+    - debug: var=show_vlan.stdout_lines
