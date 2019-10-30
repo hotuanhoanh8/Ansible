@@ -6,12 +6,12 @@
   tasks:
     - name: Create vlan
       ios_vlan:
-        vlan_id: "{{ item }}"
+        vlan_id: "{{ item.number }}"
         name: "{{ item.regex }}"
         state: present
       with_items:
-        - "11", regex: "p1"
-        - "12", regex: "p2"
+        - number: "11", regex: "phong 1"
+        - number: "12", regex: "p1"
         - 13
         - 14
         - "15"
