@@ -10,8 +10,8 @@
         name: "{{ item.regex }}"
         state: present
       with_items:
-        - { number: "23", regex: "phong_1" }
-        - { number: "24", regex: "p1" }
+        - { number: "33", regex: "phong_nhan_su" }
+        - { number: "34", regex: "phong_ke_toan" }
     - name: Show vlan
       ios_command:
         commnads: show vlan
