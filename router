@@ -1,0 +1,5 @@
+---
+- name: Set loopback IPv4 address
+  ios_l3_interface:
+    name: loopback 2
+    ipv4: 10.0.0.1/24
