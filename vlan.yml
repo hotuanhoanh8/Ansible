@@ -8,11 +8,11 @@
     - name: Create vlan
       ios_vlan:
         vlan_id: "{{ item.number }}"
-        name: "{{ item.regex }}"
+        name: "{{ item.name }}"
         state: present
       with_items:
-        - { number: "33", regex: "phong_nhan_su" }
-        - { number: "34", regex: "phong_ke_toan" }
+        - { number: "33", name: "phong_nhan_su" }
+        - { number: "34", name: "phong_ke_toan" }
     - name: Show vlan
       ios_command:
         commands:
