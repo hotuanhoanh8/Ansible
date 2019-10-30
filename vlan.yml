@@ -4,7 +4,7 @@
   gather_facts: no
 
   tasks:
-   - name: Create vlan
+    - name: Create vlan
       ios_vlan:
         vlan_id: "{{item}}"
         name: test-vlan
@@ -15,3 +15,4 @@
        -12
        -13
        -14
+
