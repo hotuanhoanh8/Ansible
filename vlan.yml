@@ -14,7 +14,7 @@
         - { number: "34", regex: "phong_ke_toan" }
     - name: Show vlan
       ios_command:
-        commnads: show vlan
+        commnads: show vlan brief
       register: show_vlan
 
     - debug: var=show_vlan.stdout_lines
