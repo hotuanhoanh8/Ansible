@@ -10,7 +10,7 @@
         name: "{{ item }}"
         state: present
       with_items:
-        - 11
+        - vlan11
         - 12
         - 13
         - 14
