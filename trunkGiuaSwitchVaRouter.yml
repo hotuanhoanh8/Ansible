@@ -1,5 +1,5 @@
 ---
-- name: dat ip cho cong (Router)
+- name: Cau hinh tren router
   hosts: 10.215.11.61
 
   tasks:
@@ -7,7 +7,7 @@
       ios_l3_interface:
         name: fastEthernet0/1
         ipv4: 192.168.1.1/24
-        
+
     - name: dat ip subinterface
       ios_config:
         lines:
@@ -26,3 +26,37 @@
       register: show_ip
 
     - debug: var=show_ip.stdout_lines
+
+---
+- name: Cau hinh tren Switch
+  hosts: 10.215.11.62
+
+  tasks:
+    - name: tao vlan
+      ios_config:
+        lines:
+          -vlan {{item}}
+          -exit
+      with_items:
+        - 10
+        - 20
+        - 30
+
+    - name: gan cong vao vlan
+      ios_config:
+        lines:
+          - switchport mode access
+          - switch access vlan {{item.vlan}}
+          - exit
+        parents: {{item.int}}
+      with_items:
+        - { vlan: 10, int: fastEthernet0/1}
+        - { vlan: 20, int: fastEthernet0/2}
+        - { vlan: 30, int: fastEthernet0/3}
+
+    - name: trunking tren switch
+      ios_config:
+        lines:
+          - switchport trunk encapsulation dot1Q
+          - switchport mode trunk
+      parents: fastEthernet0/0
