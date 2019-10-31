@@ -1,6 +1,6 @@
 ---
 - name: Cau hinh tren router
-  hosts: 10.215.11.61
+  hosts: 10.215.11.65
 
   tasks:
     - name: Dat ip cho cong fastEthernet0/1
@@ -29,7 +29,7 @@
 
 ---
 - name: Cau hinh tren Switch
-  hosts: 10.215.11.62
+  hosts: 10.215.11.66
 
   tasks:
     - name: tao vlan
