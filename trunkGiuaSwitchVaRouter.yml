@@ -1,6 +1,7 @@
 ---
 - name: Cau hinh tren router
   hosts: R
+  gather_facts: no
 
   tasks:
     - name: Dat ip cho cong fastEthernet0/1
@@ -29,6 +30,7 @@
 
 - name: Cau hinh tren Switch
   hosts: SW
+  gather_facts: no
 
   tasks:
     - name: tao vlan
