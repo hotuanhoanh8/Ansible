@@ -1,6 +1,6 @@
 ---
 - name: Cau hinh tren router
-  hosts: 10.215.11.68
+  hosts: R
 
   tasks:
     - name: Dat ip cho cong fastEthernet0/1
@@ -28,7 +28,7 @@
     - debug: var=show_ip.stdout_lines
 
 - name: Cau hinh tren Switch
-  hosts: 10.215.11.66
+  hosts: SW
 
   tasks:
     - name: tao vlan
