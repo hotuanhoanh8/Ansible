@@ -23,9 +23,8 @@
     - name: trunking tren switch
       ios_l2_interface:
         - name: fastEthernet3/0/14
-          trunk:
-            allowed_vlan: 10,20
-            encapsulation: dot1Q
+          mode: trunking
+          trunk_vlans: 10,20
 
 - name: Cau hinh tren router
   hosts: Router
