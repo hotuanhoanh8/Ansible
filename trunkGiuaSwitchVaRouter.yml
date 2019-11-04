@@ -19,7 +19,7 @@
         - { vlan: "10", int: "fastEthernet3/0/2"}
         - { vlan: "20", int: "fastEthernet3/0/3"}
         - { vlan: "30", int: "fastEthernet3/0/4"}
-    - name: trunk port
+    - name: trunk port f
       ios_config:
         parents:
           - int f3/0/14
