@@ -60,4 +60,4 @@
         lines:
           - switchport trunk encapsulation dot1Q
           - switchport mode trunk
-        parents: fastEthernet3/0/24
+        parents: fastEthernet3/0/14
