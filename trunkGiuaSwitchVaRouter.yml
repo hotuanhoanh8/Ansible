@@ -33,10 +33,10 @@
   gather_facts: no
 
   tasks:
-#    - name: Dat ip cho cong fastEthernet0/1
-#      ios_l3_interface:
-#        name: fastEthernet0/1
-#        ipv4: 192.168.1.1/24
+    - name: Dat ip cho cong fastEthernet0/1
+      ios_l3_interface:
+        name: fastEthernet0/1
+        ipv4: 192.168.1.1/24
 
     - name: dat ip subinterface
       ios_config:
