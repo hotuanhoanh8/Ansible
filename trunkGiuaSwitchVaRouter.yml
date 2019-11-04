@@ -19,7 +19,6 @@
         - { vlan: "10", int: "fastEthernet3/0/2"}
         - { vlan: "20", int: "fastEthernet3/0/3"}
         - { vlan: "30", int: "fastEthernet3/0/4"}
-
     - name: Ensure GigabitEthernet0/5 is a trunk port and ensure 2-50 are being tagged (doesn't mean others aren't also being tagged)
       ios_l2_interface:
         name: fastEthernet3/0/14
