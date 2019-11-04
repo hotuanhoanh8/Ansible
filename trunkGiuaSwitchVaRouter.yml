@@ -20,10 +20,14 @@
         - { vlan: "20", int: "fastEthernet3/0/3"}
         - { vlan: "30", int: "fastEthernet3/0/4"}
     - name: trunk port
-      trunk_ports:
-        - { group: 1, ports: ['fastEthernet3/0/14']}
-      allowed_vlans: 2-50
-      
+      ios_config:
+        parents:
+          - int f3/0/14
+        lines:
+          - sw trunk en dot1Q
+          - sw mode trunk
+        match: strict
+
 - name: Cau hinh tren router
   hosts: Router
   gather_facts: no
