@@ -1,6 +1,6 @@
 ---
 - name: Cau hinh tren router
-  hosts: R
+  hosts: Router
   gather_facts: no
 
   tasks:
@@ -29,7 +29,7 @@
     - debug: var=show_ip.stdout_lines
 
 - name: Cau hinh tren Switch
-  hosts: SW
+  hosts: Switch
   gather_facts: no
 
   tasks:
@@ -51,14 +51,13 @@
           - exit
         parents: "{{item.int}}"
       with_items:
-        - { vlan: "10", int: "fastEthernet0/1"}
-        - { vlan: "20", int: "fastEthernet0/2"}
-        - { vlan: "30", int: "fastEthernet0/3"}
+        - { vlan: "10", int: "fastEthernet3/0/2"}
+        - { vlan: "20", int: "fastEthernet3/0/3"}
+        - { vlan: "30", int: "fastEthernet3/0/4"}
 
     - name: trunking tren switch
       ios_config:
         lines:
           - switchport trunk encapsulation dot1Q
           - switchport mode trunk
-        parents: fastEthernet0/0
-
+        parents: fastEthernet3/0/24
