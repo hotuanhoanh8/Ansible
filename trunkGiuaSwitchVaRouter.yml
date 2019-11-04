@@ -1,33 +1,4 @@
 ---
-- name: Cau hinh tren router
-  hosts: Router
-  gather_facts: no
-
-  tasks:
-    - name: Dat ip cho cong fastEthernet0/1
-      ios_l3_interface:
-        name: fastEthernet0/1
-        ipv4: 192.168.1.1/24
-
-    - name: dat ip subinterface
-      ios_config:
-        lines:
-          -encapsulation dot1Q "{{item.vlan}}"
-          -ip address 192.168."{{item.vlan}}".1 255.255.255.0
-        parents: "{{item.subint}}"
-      with_items:
-        - { subint: fastEthernet0/1.10 , vlan: "10" }
-        - { subint: fastEthernet0/1.20 , vlan: "20" }
-        - { subint: fastEthernet0/1.30 , vlan: "30" }
-
-    - name: Show ip
-      ios_command:
-        commands:
-          - show ip int brief
-      register: show_ip
-
-    - debug: var=show_ip.stdout_lines
-
 - name: Cau hinh tren Switch
   hosts: Switch
   gather_facts: no
@@ -61,3 +32,32 @@
           - switchport trunk encapsulation dot1Q
           - switchport mode trunk
         parents: fastEthernet3/0/14
+
+- name: Cau hinh tren router
+  hosts: Router
+  gather_facts: no
+
+  tasks:
+    - name: Dat ip cho cong fastEthernet0/1
+      ios_l3_interface:
+        name: fastEthernet0/1
+        ipv4: 192.168.1.1/24
+
+    - name: dat ip subinterface
+      ios_config:
+        lines:
+          -encapsulation dot1Q "{{item.vlan}}"
+          -ip address 192.168."{{item.vlan}}".1 255.255.255.0
+        parents: "{{item.subint}}"
+      with_items:
+        - { subint: fastEthernet0/1.10 , vlan: "10" }
+        - { subint: fastEthernet0/1.20 , vlan: "20" }
+        - { subint: fastEthernet0/1.30 , vlan: "30" }
+
+    - name: Show ip
+      ios_command:
+        commands:
+          - show ip int brief
+      register: show_ip
+
+    - debug: var=show_ip.stdout_lines
