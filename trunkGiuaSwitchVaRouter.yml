@@ -25,9 +25,9 @@
         name: fastEthernet3/0/14
         mode: trunk
         trunk_vlans:
-          -10
-          -20
-          -30
+          - 10
+          - 20
+          - 30
 
 - name: Cau hinh tren router
   hosts: Router
