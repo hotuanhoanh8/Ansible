@@ -26,7 +26,7 @@
         lines:
           - sw trunk en dot1Q
           - sw mode trunk
-        match: strict
+  #      match: strict
 
 - name: Cau hinh tren router
   hosts: Router
