@@ -5,33 +5,29 @@
 
   tasks:
     - name: tao vlan
-      ios_config:
-        lines:
-          -vlan "{{item}}"
-          -exit
-      with_items:
-        - 10
-        - 20
-        - 30
-
+      ios_vlan:
+        aggregate:
+          - { vlan_id : 10 }
+          - { vlan_id : 20 }
+          - { vlan_id : 30 }
     - name: gan cong vao vlan
-      ios_config:
-        lines:
-          - switchport mode access
-          - switch access vlan "{{item.vlan}}"
-          - exit
-        parents: "{{item.int}}"
+      ios_l2_interface:
+        name: "{{ item.int }}"
+        mode: access
+        access_vlan: "{{ item.vlan }}"
       with_items:
         - { vlan: "10", int: "fastEthernet3/0/2"}
         - { vlan: "20", int: "fastEthernet3/0/3"}
         - { vlan: "30", int: "fastEthernet3/0/4"}
 
     - name: trunking tren switch
-      ios_config:
-        lines:
-          - switchport trunk encapsulation dot1Q
-          - switchport mode trunk
-        parents: fastEthernet3/0/14
+      ios_l2_interface:
+        name: fastEthernet3/0/14
+        mode: trunk
+        trunk_vlans:
+          -10
+          -20
+          -30
 
 - name: Cau hinh tren router
   hosts: Router
