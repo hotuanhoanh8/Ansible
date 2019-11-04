@@ -16,9 +16,9 @@
           -ip address 192.168."{{item.vlan}}".1 255.255.255.0
         parents: "{{item.subint}}"
       with_items:
-        - { subint: "fastEthernet0/1.10" , vlan: "10" }
-        - { subint: "fastEthernet0/1.20" , vlan: "20" }
-        - { subint: "fastEthernet0/1.30" , vlan: "30" }
+        - { subint: fastEthernet0/1.10 , vlan: "10" }
+        - { subint: fastEthernet0/1.20 , vlan: "20" }
+        - { subint: fastEthernet0/1.30 , vlan: "30" }
 
     - name: Show ip
       ios_command:
