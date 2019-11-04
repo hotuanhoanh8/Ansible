@@ -7,9 +7,9 @@
     - name: tao vlan
       ios_vlan:
         aggregate:
-          - { vlan_id : "10" }
-          - { vlan_id : "20" }
-          - { vlan_id : "30" }
+          - { vlan_id : 10 }
+          - { vlan_id : 20 }
+          - { vlan_id : 30 }
     - name: gan cong vao vlan
       ios_l2_interface:
         name: "{{ item.int }}"
@@ -24,7 +24,7 @@
       ios_l2_interface:
         name: fastEthernet3/0/14
         mode: trunk
-        trunk_vlans:
+        trunk_allowed_vlans:
           - 10
           - 20
           - 30
