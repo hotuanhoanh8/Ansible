@@ -21,11 +21,11 @@
         - { vlan: "30", int: "fastEthernet3/0/4"}
 
     - name: trunking tren switch
-      ios_l2_interface:
-        name: fastEthernet3/0/14
-        mode: trunk
-        native_vlan: 1
-        trunk_vlans: 10-30
+      ios_config:
+        lines:
+          - switchport trunk encapsulation dot1Q
+          - switchport mode trunk
+        parents: interface fastEthernet3/0/14
 
 - name: Cau hinh tren router
   hosts: Router
