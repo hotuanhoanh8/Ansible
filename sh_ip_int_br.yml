@@ -1,0 +1,15 @@
+---
+- name: Cau hinh tren router
+  hosts: Router
+  gather_facts: no
+
+  tasks:
+    - name: Show ip
+      ios_command:
+        commands:
+          - show ip int brief
+        wait_for:
+          - result[0] contains up
+      register: show_ip
+
+    - debug: var=show_ip.stdout_lines
