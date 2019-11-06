@@ -1,6 +1,6 @@
 ---
 - name: Cau hinh tren router
-  hosts: all
+  hosts: SW
   gather_facts: no
 
   tasks:
