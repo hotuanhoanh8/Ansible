@@ -7,13 +7,13 @@
   tasks:
     - name: Create vlan #Đặt tên task để quản lý
       ios_vlan: # Cú pháp để thiết lập vlan, vlan_id, name,state,... là các tham số để cấu hình vlan
-        vlan_id: "{{ item.number }}" #item.number thì nó sẽ tìm giá trị với key là number trong phần with_items
-        name: "{{ item.name }}" #item.name thì nó sẽ tìm giá trị với key là name trong phần with_items
+        vlan_id: {{ item.number }} #item.number thì nó sẽ tìm giá trị với key là number trong phần with_items
+        name: {{ item.name }} #item.name thì nó sẽ tìm giá trị với key là name trong phần with_items
         state: present # trạng thái của vlan; present: tạo, absent:xóa
       with_items:
-        - { number: 10, name: "phong_nhan_su" }
-        - { number: 20, name: "phong_ke_toan" }
-        - { number: 30, name: "phong_kinh_doanh" }
+        - { number: 10, name: phong_nhan_su }
+        - { number: 20, name: phong_ke_toan }
+        - { number: 30, name: phong_kinh_doanh }
     #Hiển thị các vlan lên màn hình
     - name: Show vlan
       ios_command: # Cú pháp để viết lệnh để gửi ở mode command line của switch
