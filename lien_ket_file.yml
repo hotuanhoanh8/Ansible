@@ -1,6 +1,6 @@
 ---
 - name: Lien ket voi file example_vars.yml
-  host: all
+  hosts: all
   gather_facts: false
   vars_file:
     - example_vars.yml
