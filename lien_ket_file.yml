@@ -7,10 +7,8 @@
 
   tasks:
     - name: in ten cong ty
-      debug:
-        msg= "Hello {{ company_name }}"
+      debug: msg= "Hello {{ company_name }}"
 
     - name: in ten nhom
-      debug:
-        with_items: "{{quotes}}"
-        msg= "{{item}}"
+      with_items: "{{quotes}}"
+      debug: msg= "{{item}}"
