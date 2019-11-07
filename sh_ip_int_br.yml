@@ -1,6 +1,6 @@
 ---
 - name: Cau hinh tren router
-  hosts: SW
+  hosts: Router
   gather_facts: no
 
   tasks:
@@ -8,8 +8,10 @@
       ios_command:
         commands:
           - show ip int brief
-        wait_for:
-          - result[0] contains up
-      register: show_ip
+      register: output
 
-    - debug: var=show_ip.stdout_lines
+    - debug: var=output.stdout
+
+    - name: parse output
+      command_parser:
+        file: "parsers/ios/show_ip_interface_brief.yaml"
