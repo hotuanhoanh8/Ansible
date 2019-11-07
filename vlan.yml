@@ -1,24 +1,23 @@
 ---
 - name: tao vlan
-  hosts: SW # tên của thiết bị trong Ansible server( vì ở đây chỉ có router nên có thể để all)
-  gather_facts: no # lấy thông tin của host (khi thực hiện playbook sẽ tự động lấy thông tin của host,
-  #ở đây chọn no hoặc false để khi chạy playbook đỡ tốn thời gian)
+  hosts: SW
+  gather_facts: no
 
   tasks:
-    - name: Create vlan #Đặt tên task để quản lý
-      ios_vlan: # Cú pháp để thiết lập vlan, vlan_id, name,state,... là các tham số để cấu hình vlan
-        vlan_id: "{{ item.number }}" #item.number thì nó sẽ tìm giá trị với key là number trong phần with_items
-        name: "{{ item.name }}" #item.name thì nó sẽ tìm giá trị với key là name trong phần with_items
-        state: present # trạng thái của vlan; present: tạo, absent:xóa
+    - name: Create vlan
+      ios_vlan:
+        vlan_id: "{{ item.number }}"
+        name: "{{ item.name }}"
+        state: present
       with_items:
         - "{ number: 11, name: phong_nhan_su }"
         - { number: 20, name: "phong_ke_toan" }
         - { number: 30, name: "phong_kinh_doanh" }
-    #Hiển thị các vlan lên màn hình
+
     - name: Show vlan
-      ios_command: # Cú pháp để viết lệnh để gửi ở mode command line của switch
+      ios_command:
         commands:
           - show vlan brief
-      register: show_vlan #gắn kết quả thực thi từ switch vào biến show_vlan
+      register: show_vlan
 
-    - debug: var=show_vlan.stdout_lines #debug: in ra màn hình, đặt biến var(lấy thông tin của các dòng từ show_vlan gắn vào),in biến var
+    - debug: var=show_vlan.stdout_lines 
