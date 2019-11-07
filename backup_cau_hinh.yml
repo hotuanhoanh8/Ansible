@@ -1,0 +1,26 @@
+---
+- name: backup cau hinh
+  hosts: all
+  gather_facts: no
+
+  - name: backup conf
+    ios_config:
+      backup: yes
+      register: config_output
+
+  - name: rename
+    copy:
+      source: "{{config_output.backup_path}}"
+      dest: "G://Hoc/Devnet/backup.config"
+
+  - name: remove non-config lines
+    lineinfile:
+      path: "G://Hoc/Devnet/backup.config"
+      lines: "Building configuration..."
+      state: absent
+
+  - name: remove non-config lines regex
+    lineinfile:
+      path: "G://Hoc/Devnet/backup.config"
+      regex: 'Current configuration.*'
+      state: absent
