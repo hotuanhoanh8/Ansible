@@ -1,4 +1,5 @@
 ---
+#Error
 - name: Lien ket voi file example_vars
   hosts: all
   gather_facts: false
