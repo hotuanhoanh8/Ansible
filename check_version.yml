@@ -9,4 +9,4 @@
         commands: show version
       register: result
     - fail: msg="can update version"
-      when: "not ('Version 12.4' in result.stdout[0])"
+      when: "not ('Version 15.5' in result.stdout[0])"
