@@ -1,7 +1,7 @@
 ---
 - name: tao vlan
   hosts: SW # tên của thiết bị trong Ansible server( vì ở đây chỉ có router nên có thể để all)
-  gather_facts: no # lấy thông tin của host (khi thực hiện playbook sẽ tự động lấy thông tin của host,
+#  gather_facts: no # lấy thông tin của host (khi thực hiện playbook sẽ tự động lấy thông tin của host,
   #ở đây chọn no hoặc false để khi chạy playbook đỡ tốn thời gian)
 
   tasks:
