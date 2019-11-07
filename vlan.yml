@@ -10,7 +10,7 @@
         name: "{{ item.name }}"
         state: present
       with_items:
-        - { number: 11, name: phong_nhan_su }
+        - { number: 11, name: "phong_nhan_su" }
         - { number: 20, name: "phong_ke_toan" }
         - { number: 30, name: "phong_kinh_doanh" }
 
