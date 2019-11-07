@@ -11,7 +11,7 @@
         name: "{{ item.name }}" #item.name thì nó sẽ tìm giá trị với key là name trong phần with_items
         state: present # trạng thái của vlan; present: tạo, absent:xóa
       with_items:
-        - "{ number: 11, name: "phong_nhan_su" }"
+        - "{ number: 11, name: phong_nhan_su }"
         - { number: 20, name: "phong_ke_toan" }
         - { number: 30, name: "phong_kinh_doanh" }
     #Hiển thị các vlan lên màn hình
