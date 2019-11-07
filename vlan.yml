@@ -22,4 +22,3 @@
       register: show_vlan #gắn kết quả thực thi từ switch vào biến show_vlan
 
     - debug: var=show_vlan.stdout_lines #debug: in ra màn hình, đặt biến var(lấy thông tin của các dòng từ show_vlan gắn vào),in biến var
-#test 123
