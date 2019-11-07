@@ -1,6 +1,6 @@
 ---
 - name: dat ip cho loobpack
-  hosts: all # tên của thiết bị trong Ansible server( vì ở đây chỉ có router nên có thể để all)
+  hosts: Router # tên của thiết bị trong Ansible server( vì ở đây chỉ có router nên có thể để all)
 # các tác vụ
   tasks:
     - name: Set loopback IPv4 address # Đặt tên task để quản lý
