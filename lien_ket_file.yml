@@ -11,6 +11,6 @@
         msg= "Hello {{ company_name }}"
 
     - name: in ten nhom
-      deubg:
+      debug:
         with_items: "{{quotes}}"
         msg= "{{item}}"
