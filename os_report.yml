@@ -1,0 +1,20 @@
+---
+- name: os report from routers
+  hosts: cisco
+  connection: network_cli
+  gather_facts: no
+  tasks:
+    - name: lay thong tin router
+      ios_facts:
+
+    - name: xuat file thong tin
+      template:
+        src: os_report.j2
+        dest: report/{{ inventory_hostname }}.md
+
+    - name: tap trung tt ios thanh 1 file
+      assemble:
+        src: reports/
+        dest: network_os_report.md
+      delegate_to: localhost
+      run_once: yes
