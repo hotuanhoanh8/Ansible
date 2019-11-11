@@ -10,7 +10,7 @@
     - name: xuat file thong tin
       template:
         src: os_report.j2
-        dest: report/{{ inventory_hostname }}.md
+        dest: reports/{{ inventory_hostname }}.md
 
     - name: tap trung tt ios thanh 1 file
       assemble:
