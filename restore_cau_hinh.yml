@@ -9,4 +9,5 @@
 
     - name: Replace force
       ios_command:
-        commands: config replace flash:Router.config force
+        commands:
+          - config replace flash:Router.config force
