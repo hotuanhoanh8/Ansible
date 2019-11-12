@@ -1,6 +1,6 @@
 ---
 - name: backup cau hinh
-  hosts: Router
+  hosts: cisco
   gather_facts: no
 
   tasks:
