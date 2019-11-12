@@ -1,6 +1,6 @@
 ---
 - name: backup cau hinh
-  hosts: all
+  hosts: Router
   gather_facts: no
 
   tasks:
