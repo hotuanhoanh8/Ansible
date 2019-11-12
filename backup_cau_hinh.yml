@@ -12,7 +12,7 @@
     - name: rename
       copy:
         src: "{{config_output.backup_path}}"
-        dest: "./backup/Router.config"
+        dest: "awx/backup/Router.config"
 
     - name: remove non-config lines
       lineinfile:
