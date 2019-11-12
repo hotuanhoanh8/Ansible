@@ -7,7 +7,7 @@
     - name: backup config
       ios_config:
         backup: yes
-        register: config_output
+      register: config_output
 
     - name: rename
       copy:
