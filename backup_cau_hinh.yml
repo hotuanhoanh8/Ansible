@@ -23,5 +23,5 @@
     - name: remove non-config lines regex
       lineinfile:
         path: "./backup/Router.config"
-        regex: 'Current configuration.*'
+        regex: 'Current configuration *'
         state: absent
