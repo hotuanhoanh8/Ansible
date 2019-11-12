@@ -12,7 +12,7 @@
     - name: rename
       copy:
         src: "{{config_output.backup_path}}"
-        dest: "G:/Hoc/Devnet/backup/Router.config"
+        dest: "./backup/Router.config"
 
     - name: remove non-config lines
       lineinfile:
