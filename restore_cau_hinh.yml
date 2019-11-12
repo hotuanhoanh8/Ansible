@@ -1,6 +1,7 @@
 ---
 - name: Restore cau hinh
   hosts: Router
+  connection: network_cli
   gather_facts: no
 
   tasks:
