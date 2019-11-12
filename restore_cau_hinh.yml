@@ -5,7 +5,7 @@
 
   tasks:
     - name: Copy running config to router
-      command: scp G://Hoc/Devnet/backup/Router.config Router:/Router.config
+      command: scp ./backup/Router.config Router:/Router.config
 
     - name: Replace force
       ios_command:

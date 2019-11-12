@@ -16,12 +16,12 @@
 
     - name: remove non-config lines
       lineinfile:
-        path: "G://Hoc/Devnet/backup/Router.config"
+        path: "./backup/Router.config"
         lines: "Building configuration..."
         state: absent
 
     - name: remove non-config lines regex
       lineinfile:
-        path: "G://Hoc/Devnet/backup/Router.config"
+        path: "./backup/Router.config"
         regex: 'Current configuration.*'
         state: absent
