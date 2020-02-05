@@ -1,6 +1,6 @@
 ---
 - name: NETCONF
-  hosts: iosxe
+  host: Router
   connection: local
   gather_facts: False
 
