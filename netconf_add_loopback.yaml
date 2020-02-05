@@ -12,6 +12,7 @@
     - name: Create a loopback Loopback15 with NETCONF
       netconf_config:
         host: "Router"
+        hostkey_verify: yes
         port: 830
         username: "admin1"
         password: "123"
