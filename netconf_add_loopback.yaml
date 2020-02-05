@@ -1,6 +1,6 @@
 ---
 - name: NETCONF
-  host: Router
+  hosts: Router
   connection: local
   gather_facts: False
 
