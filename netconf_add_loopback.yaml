@@ -1,6 +1,6 @@
 ---
 - name: NETCONF
-  hosts: iosxe
+  hosts: Router
   connection: local
   gather_facts: False
 
@@ -12,26 +12,26 @@
     - name: Create a loopback Loopback15 with NETCONF
       netconf_config:
         host: "Router"
-        port: "830"
+        port: 830
         username: "admin1"
         password: "123"
         hostkey_verify: False
         xml: |
             <config>
-              <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
-                <interface>
-                  <name>Loopback15</name>
-                   <description>no</description>
-                  <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">
-                    ianaift:softwareLoopback
-                  </type>
-                  <enabled>true</enabled>
-                  <ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip">
-                    <address>
-                      <ip>10.100.15.2</ip>
-                      <netmask>255.255.255.0</netmask>
-                    </address>
-                  </ipv4>
-                </interface>
-              </interfaces>
+                <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+                   <interface>
+                      <name>Loopback15</name>
+                      <description>no</description>
+                      <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">
+                          ianaift:softwareLoopback
+                      </type>
+                      <enabled>true</enabled>
+                      <ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip">
+                          <address>
+                             <ip>10.100.15.2</ip>
+                             <netmask>255.255.255.0</netmask>
+                          </address>
+                      </ipv4>
+                   </interface>
+                </interfaces>
             </config>
