@@ -1,0 +1,22 @@
+---
+- name : sh vlan
+  hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: create vlan
+      ios_vlan:
+        vlan_id: "{{ item.id }}"
+        name: "{{ item.vlan_name }}"
+        state: present
+      with_items:
+        - {id: 10, vlan_name: "Phong 10"}
+        - {id: 20, vlan_name: "Phong 20"}
+        - {id: 20, vlan_name: "Phong 30"}
+
+    - name: show vlan switch
+      ios_command: 
+        commands: show vlan
+      register: output
+
+    - debug: var = output.stdout_lines
